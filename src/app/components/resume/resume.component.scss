@@ -3,6 +3,8 @@
 .resume {
   display: flex;
   flex-direction: column;
+  position: relative;
+  background-color: var(--main-bg-color);
 
   &__section {
     padding-top: 100px;

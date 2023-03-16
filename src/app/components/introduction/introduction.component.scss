@@ -1,4 +1,5 @@
 @use 'mixins.scss' as mixin;
+@use 'animation.scss';
 
 .introduction {
   height: 100vh;
@@ -9,6 +10,8 @@
     padding-top: 250px;
     display: flex;
     flex-direction: column;
+    animation-duration: 1.5s;
+    animation-name: fadeIn;
 
     @include mixin.respond-to('medium') {
       flex-direction: row;
