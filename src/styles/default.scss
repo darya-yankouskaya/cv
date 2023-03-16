@@ -1,0 +1,29 @@
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: var(--main-bg-color);
+  color: var(--text-secondary);
+  font: 16px source sans pro, arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+h1 {
+  font-family: source sans pro, sans-serif;
+  font-weight: 300;
+  color: var(--text-primary);
+}
+
+h2 {
+  font-family: lekton, sans-serif;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.2em;
+  color: var(--text-secondary);
+}
