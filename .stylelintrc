@@ -1,0 +1,53 @@
+{
+  "customSyntax": "postcss-scss",
+  "plugins": ["stylelint-prettier"],
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "font-family-no-missing-generic-family-keyword": null,
+    "no-empty-source": null,
+    "prettier/prettier": true,
+    "indentation": 2,
+    "declaration-colon-newline-after": "always-multi-line",
+    "declaration-colon-space-after": "always",
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "each",
+          "else",
+          "extend",
+          "for",
+          "function",
+          "if",
+          "include",
+          "mixin",
+          "return",
+          "while",
+          "use"
+        ]
+      }
+    ],
+    "property-no-unknown": [
+      true,
+      {
+        "ignoreProperties": ["font-smoothing"]
+      }
+    ],
+    "selector-type-no-unknown": [
+      true,
+      {
+        "ignoreTypes": []
+      }
+    ],
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": ["ng-deep"]
+      }
+    ],
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*((__([a-z][a-z0-9]*)(-[a-z0-9]+)*)?(--([a-z][a-z0-9]*)(-[a-z0-9]+)*)?)$"
+    ],
+    "string-quotes": ["single"]
+  }
+}
