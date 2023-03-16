@@ -1,0 +1,18 @@
+@use 'mixins.scss' as mixin;
+
+.container {
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include mixin.respond-to('small') {
+    max-width: 720px;
+  }
+
+  @include mixin.respond-to('medium') {
+    max-width: 940px;
+  }
+
+  @include mixin.respond-to('large') {
+    max-width: 1150px;
+  }
+}

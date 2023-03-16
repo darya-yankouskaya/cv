@@ -8,7 +8,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "changeDetection": "OnPush"
+          "changeDetection": "OnPush",
+          "standalone": true
         }
       },
       "root": "",
@@ -26,6 +27,9 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
             "scripts": []
           },
           "configurations": {
@@ -81,7 +85,10 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            }
           }
         },
         "lint": {
