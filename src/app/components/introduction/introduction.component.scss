@@ -30,7 +30,7 @@
     row-gap: 30px;
 
     @include mixin.respond-to('medium') {
-      width: 60%;
+      width: 55%;
     }
   }
 
