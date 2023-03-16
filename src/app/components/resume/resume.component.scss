@@ -1,0 +1,19 @@
+@use 'mixins.scss' as mixin;
+
+.resume {
+  display: flex;
+  flex-direction: column;
+
+  &__section {
+    padding-top: 100px;
+
+    @include mixin.respond-to('medium') {
+      width: 70%;
+      margin: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+}
