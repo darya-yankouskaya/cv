@@ -3,7 +3,7 @@
 
 .introduction {
   height: 100vh;
-  background: url('/assets/images/hero.jpg') no-repeat top;
+  background: url('/assets/images/hero.jpg') top no-repeat;
   background-size: cover;
 
   &__content {
@@ -54,4 +54,8 @@
   &__name {
     color: var(--accent-color);
   }
+}
+
+::ng-deep body.dark-theme .introduction {
+  background-image: url('/assets/images/hero-dark.jpg');
 }

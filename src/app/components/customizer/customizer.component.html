@@ -1,0 +1,24 @@
+<section class="customizer">
+  <button class="customizer__button" (click)="onSwitcherClick()"></button>
+
+  <div class="customizer__options" [@openClose]="isOpen">
+    <h4 class="customizer__options-title">Layout Type</h4>
+
+    <div class="customizer__theme-buttons">
+      <button
+        class="primary"
+        (click)="onThemeChange()"
+        [disabled]="selectedTheme === Theme.Default"
+      >
+        {{ Theme.Default | titlecase }}
+      </button>
+      <button
+        class="primary"
+        (click)="onThemeChange()"
+        [disabled]="selectedTheme === Theme.Dark"
+      >
+        {{ Theme.Dark | titlecase }}
+      </button>
+    </div>
+  </div>
+</section>

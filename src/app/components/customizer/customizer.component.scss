@@ -1,0 +1,32 @@
+.customizer {
+  position: fixed;
+  z-index: 2;
+
+  &__button {
+    position: absolute;
+    z-index: 1;
+    width: 50px;
+    height: 50px;
+    background: url('/assets/images/switcher.gif');
+  }
+
+  &__options {
+    min-width: 200px;
+    padding: 30px;
+    border-bottom-right-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+  }
+
+  &__options-title {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color: var(--text-secondary);
+    font-size: 8px;
+  }
+
+  &__theme-buttons {
+    display: flex;
+    gap: 10px;
+  }
+}
