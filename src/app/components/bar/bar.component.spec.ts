@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppearOnceDirective } from 'src/app/directives/appear-once.directive';
 
 import { BarComponent } from './bar.component';
 
@@ -8,9 +9,8 @@ describe('BarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ BarComponent ]
-    })
-    .compileComponents();
+      imports: [BarComponent, AppearOnceDirective]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BarComponent);
     component = fixture.componentInstance;
