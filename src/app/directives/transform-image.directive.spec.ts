@@ -4,7 +4,12 @@ import { TransformImageDirective } from './transform-image.directive';
 
 @Component({
   template: `
-    <img appTransformImage src="/assets/images/project1.jpg" />
+    <img
+      height="40px"
+      width="40px"
+      appTransformImage
+      src="/assets/images/project1.jpg"
+    />
   `
 })
 class TestComponent {}
@@ -38,12 +43,10 @@ describe('TransformImageDirective', () => {
 
   it('should react on mouse move', () => {
     imageElem.dispatchEvent(new MouseEvent('mousemove'));
-    fixture.detectChanges();
 
     const transform1 = imageElem.style.transform;
 
     imageElem.dispatchEvent(new MouseEvent('mousemove'));
-    fixture.detectChanges();
 
     const transform2 = imageElem.style.transform;
 
