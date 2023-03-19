@@ -16,7 +16,7 @@ export class AppearOnceDirective implements AfterViewInit, OnDestroy {
 
   private observer: IntersectionObserver | undefined;
 
-  constructor(private element: ElementRef) {}
+  constructor(public element: ElementRef<HTMLElement>) {}
 
   ngAfterViewInit() {
     const options = {
@@ -25,13 +25,11 @@ export class AppearOnceDirective implements AfterViewInit, OnDestroy {
       threshold: 1
     };
 
-    this.observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.appear.emit();
-          this.observer?.disconnect();
-        }
-      });
+    this.observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        this.appear.emit();
+        this.observer?.disconnect();
+      }
     }, options);
 
     this.observer.observe(this.element.nativeElement);

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { WorkComponent } from './work.component';
 
@@ -8,9 +9,8 @@ describe('WorkComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ WorkComponent ]
-    })
-    .compileComponents();
+      imports: [WorkComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WorkComponent);
     component = fixture.componentInstance;
@@ -19,5 +19,12 @@ describe('WorkComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render all work cards', () => {
+    const cardItems =
+      fixture.nativeElement.querySelectorAll('.work-list__item');
+
+    expect(cardItems.length).toEqual(component.workCards.length);
   });
 });
