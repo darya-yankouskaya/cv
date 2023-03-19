@@ -8,9 +8,8 @@ describe('ResumeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ ResumeComponent ]
-    })
-    .compileComponents();
+      imports: [ResumeComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ResumeComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,12 @@ describe('ResumeComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render all sections with titles', () => {
+    const sections = fixture.nativeElement.querySelectorAll('.resume__section');
+    const titles = fixture.nativeElement.querySelectorAll('.resume__title');
+
+    expect(sections.length).toEqual(titles.length);
   });
 });

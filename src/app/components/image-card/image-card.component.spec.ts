@@ -15,7 +15,10 @@ describe('ImageCardComponent', () => {
 
     fixture = TestBed.createComponent(ImageCardComponent);
     component = fixture.componentInstance;
-    expectedCard = { description: 'Test Description', url: '/test.jpg' };
+    expectedCard = {
+      description: 'Test Description',
+      url: '/assets/images/project1.jpg'
+    };
     component.card = expectedCard;
 
     fixture.detectChanges();
