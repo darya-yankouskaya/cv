@@ -19,8 +19,9 @@ import { untilDestroyed } from 'src/app/helpers/destroy.helper';
 })
 export class IntroductionComponent implements OnInit {
   public readonly maxTranslatePx = 400;
+  public readonly name = 'Persona';
   public ratio = 1;
-  public translate = 'translate3d(0px, 0px, 0px)';
+  public transform = 'translate3d(0px, 0px, 0px)';
   private readonly untilDestroyed = untilDestroyed();
 
   constructor(private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
@@ -42,13 +43,16 @@ export class IntroductionComponent implements OnInit {
     let newRatio = 0;
 
     if (scrollOffset < window.innerHeight) {
-      newRatio = 1 - scrollOffset ? 1 - scrollOffset / window.innerHeight : 0;
+      newRatio =
+        1 - scrollOffset
+          ? 1 - +(scrollOffset / window.innerHeight).toFixed(6)
+          : 0;
 
-      this.translate = `translate3d(0px, ${
-        scrollOffset ? this.maxTranslatePx * (1 - newRatio) : '0'
+      this.transform = `translate3d(0px, ${
+        scrollOffset ? +(this.maxTranslatePx * (1 - newRatio)).toFixed(6) : '0'
       }px, 0px)`;
     } else {
-      this.translate = `translate3d(0px, 300%, 0px)`;
+      this.transform = `translate3d(0px, 300%, 0px)`;
     }
 
     if (this.ratio !== newRatio) {
