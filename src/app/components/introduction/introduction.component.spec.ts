@@ -15,6 +15,7 @@ describe('IntroductionComponent', () => {
     fixture = TestBed.createComponent(IntroductionComponent);
     component = fixture.componentInstance;
     contentElem = fixture.nativeElement.querySelector('.introduction__content');
+    fixture.detectChanges();
   });
 
   it('should create', () => {
@@ -37,8 +38,6 @@ describe('IntroductionComponent', () => {
   });
 
   it('should react on window scroll and change content styles', () => {
-    component.ngOnInit();
-
     window.scrollTo(0, 30);
     window.dispatchEvent(new Event('scroll'));
 
