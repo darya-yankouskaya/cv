@@ -1,0 +1,44 @@
+@use 'mixins.scss' as mixin;
+
+:host {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  @include mixin.respond-to('medium') {
+    top: 100px;
+  }
+}
+
+.header {
+  border-bottom: 1px solid var(--bg-primary);
+  background-color: var(--main-bg-color);
+
+  @include mixin.respond-to('medium') {
+    background-color: unset;
+    border-bottom: none;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__menu-button {
+    display: block;
+
+    @include mixin.respond-to('medium') {
+      display: none;
+    }
+  }
+
+  &__section-list {
+    width: 100%;
+
+    @include mixin.respond-to('medium') {
+      width: 125px;
+    }
+  }
+}

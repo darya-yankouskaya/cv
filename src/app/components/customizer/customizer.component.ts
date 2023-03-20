@@ -1,13 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger
-} from '@angular/animations';
 import { Theme } from 'src/app/enums/theme.enum';
+import { showHideAnimation } from 'src/app/constants/animations/show-hide.animation';
 
 @Component({
   selector: 'app-customizer',
@@ -16,13 +10,7 @@ import { Theme } from 'src/app/enums/theme.enum';
   templateUrl: './customizer.component.html',
   styleUrls: ['./customizer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('openClose', [
-      state('true', style({ transform: 'none' })),
-      state('false', style({ transform: 'translateY(-150%)' })),
-      transition('false <=> true', [animate(300)])
-    ])
-  ]
+  animations: [showHideAnimation()]
 })
 export class CustomizerComponent {
   public readonly Theme = Theme;

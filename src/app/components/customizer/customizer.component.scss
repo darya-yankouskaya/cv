@@ -1,6 +1,13 @@
+@use 'mixins.scss' as mixin;
+
 .customizer {
   position: fixed;
   z-index: 2;
+  display: none;
+
+  @include mixin.respond-to('medium') {
+    display: block;
+  }
 
   &__button {
     position: absolute;
