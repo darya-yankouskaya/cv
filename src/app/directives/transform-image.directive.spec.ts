@@ -16,7 +16,6 @@ class TestComponent {}
 
 describe('TransformImageDirective', () => {
   let fixture: ComponentFixture<TestComponent>;
-  let component: TestComponent;
   let imageElem: HTMLImageElement;
 
   beforeEach(() => {
@@ -24,7 +23,6 @@ describe('TransformImageDirective', () => {
       declarations: [TestComponent],
       imports: [TransformImageDirective]
     }).createComponent(TestComponent);
-    component = fixture.componentInstance;
     imageElem = fixture.nativeElement.querySelector('img');
 
     fixture.detectChanges();
