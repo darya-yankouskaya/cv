@@ -26,4 +26,13 @@ describe('ResumeComponent', () => {
 
     expect(sections.length).toEqual(titles.length);
   });
+
+  it('should have id for all section', () => {
+    const sections: NodeListOf<Element> =
+      fixture.nativeElement.querySelectorAll('.resume__section');
+
+    sections.forEach(section => {
+      expect(section.id).toBeTruthy();
+    });
+  });
 });

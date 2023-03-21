@@ -20,4 +20,11 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render all section links', () => {
+    const links = fixture.nativeElement.querySelectorAll(
+      '.header__section-link'
+    );
+    expect(links.length).toEqual(component.sections.length);
+  });
 });

@@ -9,6 +9,8 @@ import { CommonModule } from '@angular/common';
 import { untilDestroyed } from 'src/app/helpers/destroy.helper';
 import { fromEvent } from 'rxjs';
 import { showHideAnimation } from '../../constants/animations/show-hide.animation';
+import { SECTIONS } from 'src/app/constants/sections.constants';
+import { SectionId } from 'src/app/enums/section.enum';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +22,8 @@ import { showHideAnimation } from '../../constants/animations/show-hide.animatio
   animations: [showHideAnimation(500)]
 })
 export class HeaderComponent implements OnInit {
-  public showHeader = false;
+  public readonly sections = SECTIONS;
+  public isHeaderVisible = false;
 
   private readonly untilDestroyed = untilDestroyed();
 
@@ -30,15 +33,20 @@ export class HeaderComponent implements OnInit {
     this.checkScrollPosition();
   }
 
+  public scrollToSection(id: SectionId) {
+    const elem = document.getElementById(id);
+    elem?.scrollIntoView({ behavior: 'smooth' });
+  }
+
   private checkScrollPosition(): void {
     this.ngZone.runOutsideAngular(() => {
       fromEvent(window, 'scroll')
         .pipe(this.untilDestroyed())
         .subscribe(() => {
-          const isHeaderVisible = window.scrollY > window.innerHeight;
+          const isHeaderVisible = window.scrollY > window.innerHeight - 20;
 
-          if (isHeaderVisible !== this.showHeader) {
-            this.showHeader = isHeaderVisible;
+          if (isHeaderVisible !== this.isHeaderVisible) {
+            this.isHeaderVisible = isHeaderVisible;
             this.cdr.detectChanges();
           }
         });

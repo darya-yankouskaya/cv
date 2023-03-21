@@ -1,4 +1,4 @@
-<section class="header" [@showHide]="showHeader">
+<section class="header" [@showHide]="isHeaderVisible">
   <div class="container">
     <div class="header__content">
       <img
@@ -12,7 +12,11 @@
       <button class="header__menu-button">...</button>
 
       <ul class="header__section-list">
-        list
+        <li class="header__section-item" *ngFor="let section of sections">
+          <a class="header__section-link" (click)="scrollToSection(section.id)">
+            {{ section.title }}
+          </a>
+        </li>
       </ul>
     </div>
   </div>
