@@ -13,7 +13,13 @@
 
       <ul class="header__section-list">
         <li class="header__section-item" *ngFor="let section of sections">
-          <a class="header__section-link" (click)="scrollToSection(section.id)">
+          <a
+            class="header__section-link"
+            [class.header__section-link--active]="
+              (activeSectionId$ | async) === section.id
+            "
+            (click)="scrollToSection(section.id)"
+          >
             {{ section.title }}
           </a>
         </li>

@@ -61,7 +61,7 @@
     &::after {
       position: absolute;
       left: 0;
-      top: 2px;
+      top: 4px;
       width: 4px;
       height: 4px;
       background-color: rgb(168 168 168 / 30%);
@@ -76,6 +76,7 @@
       }
     }
 
+    &--active,
     &:hover {
       color: var(--text-primary);
       text-decoration: none;

@@ -11,6 +11,7 @@ import { fromEvent } from 'rxjs';
 import { showHideAnimation } from '../../constants/animations/show-hide.animation';
 import { SECTIONS } from 'src/app/constants/sections.constants';
 import { SectionId } from 'src/app/enums/section.enum';
+import { NavigationService } from 'src/app/services/navigation.service';
 
 @Component({
   selector: 'app-header',
@@ -24,18 +25,26 @@ import { SectionId } from 'src/app/enums/section.enum';
 export class HeaderComponent implements OnInit {
   public readonly sections = SECTIONS;
   public isHeaderVisible = false;
+  public activeSectionId$ = this.navigationService.activeSectionId$;
 
   private readonly untilDestroyed = untilDestroyed();
 
-  constructor(private ngZone: NgZone, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private ngZone: NgZone,
+    private cdr: ChangeDetectorRef,
+    private navigationService: NavigationService
+  ) {}
 
   ngOnInit(): void {
     this.checkScrollPosition();
+
+    setTimeout(() => {
+      this.navigationService.observeSectionInterception();
+    });
   }
 
   public scrollToSection(id: SectionId) {
-    const elem = document.getElementById(id);
-    elem?.scrollIntoView({ behavior: 'smooth' });
+    this.navigationService.scrollToSection(id);
   }
 
   private checkScrollPosition(): void {
