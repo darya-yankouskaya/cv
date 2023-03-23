@@ -4,11 +4,12 @@ import { AboutComponent } from '../about/about.component';
 import { WorkComponent } from '../work/work.component';
 import { SECTIONS } from 'src/app/constants/sections.constants';
 import { SectionId } from 'src/app/enums/section.enum';
+import { ExperienceComponent } from '../experience/experience.component';
 
 @Component({
   selector: 'app-resume',
   standalone: true,
-  imports: [CommonModule, AboutComponent, WorkComponent],
+  imports: [CommonModule, AboutComponent, WorkComponent, ExperienceComponent],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -88,7 +88,7 @@
     padding-left: 40px;
     font-size: 11px;
     letter-spacing: 0.2em;
-    color: var(--link-color);
+    color: var(--text-tertiary);
     transition: color 0.3s ease-in-out;
 
     @include mixin.respond-to('medium') {
