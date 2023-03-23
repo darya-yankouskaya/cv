@@ -1,22 +1,22 @@
 @use 'mixins.scss' as mixin;
 
 .experience {
-  position: relative;
-  display: flex;
-  flex-direction: column-reverse;
-  row-gap: 60px;
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 60px;
 
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 4px;
-    top: 10px;
-    bottom: 10px;
-    width: 1px;
-    transition: opacity 500ms ease-in;
-    transform-origin: bottom;
-    background-color: var(--line-color);
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background-color: var(--line-color);
+    }
   }
 
   &__item {
@@ -68,5 +68,10 @@
 
   &__item-company {
     color: var(--text-primary);
+  }
+
+  &__download-link {
+    margin-top: 100px;
+    display: inline-block;
   }
 }

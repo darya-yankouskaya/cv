@@ -1,15 +1,19 @@
-<ul class="experience">
-  <li class="experience__item" *ngFor="let item of EXPERIENCE">
-    <div class="experience__item-info">
-      <span>{{ item.startDate }} - {{ item.endDate || 'Present' }}</span>
-    </div>
-    <div class="experience__item-info">
-      <span class="experience__item-company">
-        {{ item.company }}
-      </span>
-      <span class="experience__item-role">
-        {{ item.role }}
-      </span>
-    </div>
-  </li>
-</ul>
+<section class="experience">
+  <ul class="experience__list">
+    <li class="experience__item" *ngFor="let item of EXPERIENCE">
+      <div class="experience__item-info">
+        <span>{{ item.startDate }} - {{ item.endDate || 'Present' }}</span>
+      </div>
+      <div class="experience__item-info">
+        <span class="experience__item-company">
+          {{ item.company }}
+        </span>
+        <span class="experience__item-role">
+          {{ item.role }}
+        </span>
+      </div>
+    </li>
+  </ul>
+
+  <a href="#" class="experience__download-link secondary">Download Resume</a>
+</section>

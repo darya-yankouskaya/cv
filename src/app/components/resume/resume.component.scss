@@ -15,6 +15,13 @@
     }
   }
 
+  &__section-content {
+    @include mixin.respond-to('medium') {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
   &__title {
     margin-bottom: 40px;
   }

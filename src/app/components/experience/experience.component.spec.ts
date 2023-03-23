@@ -25,4 +25,12 @@ describe('ExperienceComponent', () => {
 
     expect(items.length).toEqual(component.EXPERIENCE.length);
   });
+
+  it('should contain download resume link', () => {
+    const link = fixture.nativeElement.querySelector(
+      '.experience__download-link'
+    );
+
+    expect(link).toBeTruthy();
+  });
 });
