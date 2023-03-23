@@ -1,9 +1,4 @@
-import {
-  ComponentFixture,
-  fakeAsync,
-  TestBed,
-  tick
-} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationService } from 'src/app/services/navigation.service';
 
@@ -12,9 +7,14 @@ import { HeaderComponent } from './header.component';
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
+  let menuButton: HTMLButtonElement;
+  const getOpenedNav = () =>
+    fixture.nativeElement.querySelector('.header__navigation--opened');
+  const getActiveMenu = () =>
+    fixture.nativeElement.querySelector('.header__menu-button--active');
+
   const navigationService = jasmine.createSpyObj('NavigationService', [
-    'scrollToSection',
-    'observeSectionInterception'
+    'scrollToSection'
   ]);
 
   beforeEach(async () => {
@@ -30,6 +30,7 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+    menuButton = fixture.nativeElement.querySelector('.header__menu-button');
     fixture.detectChanges();
   });
 
@@ -48,12 +49,33 @@ describe('HeaderComponent', () => {
     const link = fixture.nativeElement.querySelector('.header__section-link');
     link.click();
 
+    fixture.detectChanges();
+
     expect(navigationService.scrollToSection).toHaveBeenCalled();
+    expect(component.isNavVisible).toBeFalse();
   });
 
-  it('should start section intersection observing', fakeAsync(() => {
-    tick();
+  it('should set active class to menu button', () => {
+    menuButton.click();
+    fixture.detectChanges();
 
-    expect(navigationService.observeSectionInterception).toHaveBeenCalled();
-  }));
+    expect(getActiveMenu()).toBeTruthy();
+
+    menuButton.click();
+    fixture.detectChanges();
+
+    expect(getActiveMenu()).toBeFalsy();
+  });
+
+  it('should open/close navigation in button click', () => {
+    menuButton.click();
+    fixture.detectChanges();
+
+    expect(getOpenedNav()).toBeTruthy();
+
+    menuButton.click();
+    fixture.detectChanges();
+
+    expect(getOpenedNav()).toBeFalsy();
+  });
 });

@@ -25,6 +25,7 @@ import { NavigationService } from 'src/app/services/navigation.service';
 export class HeaderComponent implements OnInit {
   public readonly sections = SECTIONS;
   public isHeaderVisible = false;
+  public isNavVisible = false;
   public activeSectionId$ = this.navigationService.activeSectionId$;
 
   private readonly untilDestroyed = untilDestroyed();
@@ -45,6 +46,11 @@ export class HeaderComponent implements OnInit {
 
   public scrollToSection(id: SectionId) {
     this.navigationService.scrollToSection(id);
+    this.isNavVisible = false;
+  }
+
+  public changeSectionListVisibility(): void {
+    this.isNavVisible = !this.isNavVisible;
   }
 
   private checkScrollPosition(): void {
