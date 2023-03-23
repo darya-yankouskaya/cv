@@ -1,0 +1,56 @@
+@use 'mixins.scss' as mixin;
+
+.clients {
+  &__ex-text {
+    font-size: 50px;
+    line-height: 62px;
+    padding-bottom: 50px;
+    font-weight: 300;
+
+    @include mixin.respond-to('medium') {
+      font-size: 55px;
+      line-height: 70px;
+    }
+
+    @include mixin.respond-to('large') {
+      font-size: 60px;
+      line-height: 72px;
+    }
+
+    &--highlighted {
+      color: var(--accent-color);
+    }
+  }
+
+  &__featured-text {
+    font-size: 14px;
+    line-height: 30px;
+    padding-bottom: 20px;
+
+    @include mixin.respond-to('large') {
+      font-size: 16px;
+      line-height: 36px;
+      padding-bottom: 30px;
+    }
+  }
+
+  &__links-list {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 40px;
+    margin-top: 10px;
+
+    @include mixin.respond-to('small') {
+      flex-direction: row;
+    }
+  }
+
+  &__link {
+    opacity: 0.3;
+    transition: opacity 300ms ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

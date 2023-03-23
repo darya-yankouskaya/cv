@@ -14,11 +14,9 @@
           <app-experience class="resume__section-content"></app-experience>
         </ng-container>
         <ng-container *ngSwitchCase="SectionId.Clients">
-          <div style="height: 600px; background-color: bisque"></div>
+          <app-clients class="resume__section-content"></app-clients>
         </ng-container>
-        <ng-container *ngSwitchCase="SectionId.Contact">
-          <div style="height: 600px; background-color: rgb(181, 58, 134)"></div>
-        </ng-container>
+        <ng-container *ngSwitchCase="SectionId.Contact"></ng-container>
       </ng-container>
     </section>
   </section>
