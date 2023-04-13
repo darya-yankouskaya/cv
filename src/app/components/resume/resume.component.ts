@@ -6,6 +6,7 @@ import { SECTIONS } from 'src/app/constants/sections.constants';
 import { SectionId } from 'src/app/enums/section.enum';
 import { ExperienceComponent } from '../experience/experience.component';
 import { ClientsComponent } from '../clients/clients.component';
+import { ContactComponent } from '../contact/contact.component';
 
 @Component({
   selector: 'app-resume',
@@ -15,7 +16,8 @@ import { ClientsComponent } from '../clients/clients.component';
     AboutComponent,
     WorkComponent,
     ExperienceComponent,
-    ClientsComponent
+    ClientsComponent,
+    ContactComponent
   ],
   templateUrl: './resume.component.html',
   styleUrls: ['./resume.component.scss'],

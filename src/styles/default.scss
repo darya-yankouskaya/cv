@@ -76,3 +76,33 @@ button {
   border: none;
   cursor: pointer;
 }
+
+label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  padding-bottom: 15px;
+  color: var(--text-primary);
+}
+
+input,
+textarea {
+  border: none;
+  padding: 0 0 15px;
+  margin-bottom: var(--input-margin);
+  border-bottom: 2px solid var(--line-color);
+  color: var(--text-tertiary);
+  background-color: transparent;
+  line-height: 22px;
+  outline: none;
+  transition: border-color 300ms ease-in, color 300ms ease-in;
+
+  &:focus {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+  }
+}
+
+input[appInput],
+textarea[appInput] {
+  width: 100%;
+}
