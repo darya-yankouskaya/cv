@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CustomizerComponent } from './components/customizer/customizer.component';
+import { HeaderComponent } from './components/header/header.component';
 import { IntroductionComponent } from './components/introduction/introduction.component';
+import { ResumeComponent } from './components/resume/resume.component';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +10,11 @@ import { IntroductionComponent } from './components/introduction/introduction.co
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [IntroductionComponent]
+  imports: [
+    IntroductionComponent,
+    ResumeComponent,
+    CustomizerComponent,
+    HeaderComponent
+  ]
 })
 export class AppComponent {}

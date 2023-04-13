@@ -1,3 +1,9 @@
+@use 'mixins.scss' as mixin;
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   height: 100%;
   width: 100%;
@@ -26,4 +32,77 @@ h2 {
   line-height: 12px;
   letter-spacing: 0.2em;
   color: var(--text-secondary);
+}
+
+h4 {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+p {
+  font-size: 14px;
+  line-height: 30px;
+  padding-bottom: 20px;
+
+  @include mixin.respond-to('large') {
+    font-size: 16px;
+    line-height: 36px;
+    padding-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+ul {
+  padding-left: 0px;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  padding-bottom: 15px;
+  color: var(--text-primary);
+}
+
+input,
+textarea {
+  border: none;
+  padding: 0 0 15px;
+  margin-bottom: var(--input-margin);
+  border-bottom: 2px solid var(--line-color);
+  color: var(--text-tertiary);
+  background-color: transparent;
+  line-height: 22px;
+  outline: none;
+  transition: border-color 300ms ease-in, color 300ms ease-in;
+
+  &:focus {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+  }
+}
+
+input[appInput],
+textarea[appInput] {
+  width: 100%;
 }

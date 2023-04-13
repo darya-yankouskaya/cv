@@ -4,4 +4,20 @@ body {
   --text-tertiary: #8a8a8a;
   --accent-color: #ed3200;
   --main-bg-color: #ffffff;
+  --bg-primary: #f2f2f2;
+  --btn-bg-primary: #f7f7f7;
+  --border-color: #e0e0e0;
+
+  --btn-color: #777777;
+  --line-color: #d1d1d1;
+}
+
+body.dark-theme {
+  --text-primary: #ffffff;
+  --text-secondary: #bfbfbf;
+  --accent-color: #ed3200;
+  --main-bg-color: #1e1e1e;
+  --bg-primary: #777777;
+  --btn-bg-primary: #f7f7f7;
+  --border-color: #e0e0e0;
 }

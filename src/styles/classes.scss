@@ -16,3 +16,37 @@
     max-width: 1150px;
   }
 }
+
+.image--hovered {
+  box-shadow: 0 8px 20px rgba(14, 21, 47, 0.6);
+  transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+}
+
+button.primary {
+  display: inline-block;
+  margin: 0;
+  color: var(--btn-color);
+  background: var(--btn-bg-primary);
+  border: 1px solid var(--btn-bg-primary);
+  padding: 3px 7px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  border-radius: 3px;
+}
+
+a.secondary,
+button.secondary {
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent-color);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 300ms ease-in-out;
+
+  &:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

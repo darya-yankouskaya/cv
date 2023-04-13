@@ -1,0 +1,130 @@
+@use 'mixins.scss' as mixin;
+@use 'animation.scss';
+
+:host {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  @include mixin.respond-to('medium') {
+    top: 100px;
+  }
+}
+
+.header {
+  border-bottom: 1px solid var(--bg-primary);
+  background-color: var(--main-bg-color);
+
+  @include mixin.respond-to('medium') {
+    background-color: unset;
+    border-bottom: none;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__menu-button {
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    background-color: unset;
+
+    @include mixin.respond-to('medium') {
+      display: none;
+    }
+  }
+
+  &__menu-button-line {
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-secondary);
+    transition: transform 500ms;
+  }
+
+  &__menu-button--active &__menu-button-line {
+    &:first-of-type {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    &:last-of-type {
+      transform: translateY(0) rotate(-45deg);
+    }
+
+    &:nth-child(2) {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    width: 100%;
+    display: none;
+    animation: growDown 500ms ease-in-out;
+    transform-origin: top center;
+
+    @include mixin.respond-to('medium') {
+      height: auto;
+      display: block;
+      width: 125px;
+    }
+  }
+
+  &__navigation--opened {
+    height: auto;
+    display: block;
+    opacity: 1;
+  }
+
+  &__section-link {
+    display: block;
+    position: relative;
+    margin-bottom: 25px;
+    padding-left: 40px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--text-tertiary);
+    transition: color 0.3s ease-in-out;
+
+    @include mixin.respond-to('medium') {
+      padding-right: 40px;
+      padding-left: 0;
+      text-align: end;
+    }
+
+    &::after {
+      position: absolute;
+      left: 0;
+      top: 4px;
+      width: 4px;
+      height: 4px;
+      background-color: rgb(168 168 168 / 30%);
+      border-radius: 50%;
+      border: 2px solid transparent;
+      content: '';
+      transition: all 0.3s ease-in-out;
+
+      @include mixin.respond-to('medium') {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &--active,
+    &:hover {
+      color: var(--text-primary);
+      text-decoration: none;
+
+      &::after {
+        transform: scale3d(1.2, 1.2, 1.2);
+        background-color: transparent;
+        border-color: var(--accent-color);
+      }
+    }
+  }
+}

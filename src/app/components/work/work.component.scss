@@ -1,0 +1,15 @@
+@use 'mixins.scss' as mixin;
+
+$gap: 30px;
+
+.work-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+
+  &__item {
+    @include mixin.respond-to('small') {
+      max-width: calc(50% - #{$gap} / 2);
+    }
+  }
+}

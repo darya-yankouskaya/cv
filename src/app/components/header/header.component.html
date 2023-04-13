@@ -1,0 +1,42 @@
+<section class="header" [@showHide]="isHeaderVisible">
+  <div class="container">
+    <div class="header__content">
+      <img
+        srcset="assets/images/logo.png, assets/images/logo@2x.png 2x"
+        src="assets/images/logo@2x.png"
+        alt="Persona Logo"
+        height="41px"
+        width="41px"
+      />
+
+      <button
+        class="header__menu-button"
+        [class.header__menu-button--active]="isNavVisible"
+        (click)="changeSectionListVisibility()"
+      >
+        <span class="header__menu-button-line"></span>
+        <span class="header__menu-button-line"></span>
+        <span class="header__menu-button-line"></span>
+      </button>
+
+      <nav
+        class="header__navigation"
+        [class.header__navigation--opened]="isNavVisible"
+      >
+        <ul class="header__section-list">
+          <li class="header__section-item" *ngFor="let section of sections">
+            <a
+              class="header__section-link"
+              [class.header__section-link--active]="
+                (activeSectionId$ | async) === section.id
+              "
+              (click)="scrollToSection(section.id)"
+            >
+              {{ section.title }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</section>

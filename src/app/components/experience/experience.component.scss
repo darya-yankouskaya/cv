@@ -1,0 +1,77 @@
+@use 'mixins.scss' as mixin;
+
+.experience {
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 60px;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 4px;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background-color: var(--line-color);
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    color: var(--text-tertiary);
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 6px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      background-color: var(--main-bg-color);
+      border: 1px solid var(--text-tertiary);
+      border-radius: 50%;
+    }
+
+    &:last-of-type::before {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    @include mixin.respond-to('small') {
+      flex-direction: row;
+    }
+  }
+
+  &__item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+
+    &:last-of-type {
+      padding-left: 10px;
+      padding-top: 20px;
+
+      @include mixin.respond-to('small') {
+        padding-left: 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__item-company {
+    color: var(--text-primary);
+  }
+
+  &__download-link {
+    margin-top: 100px;
+    display: inline-block;
+  }
+}

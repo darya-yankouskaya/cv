@@ -1,5 +1,9 @@
 <section class="introduction">
-  <div class="introduction__content container">
+  <div
+    class="introduction__content container"
+    [style.opacity]="ratio"
+    [style.transform]="transform"
+  >
     <div class="introduction__logo-wrapper">
       <img
         srcset="assets/images/logo.png, assets/images/logo@2x.png 2x"
@@ -15,7 +19,7 @@
 
       <h1 class="introduction__title">
         Hi! I am
-        <span class="introduction__name">Persona</span>
+        <span class="introduction__name">{{ name }}</span>
         . Designer & Art Director. Based in New York.
       </h1>
     </div>

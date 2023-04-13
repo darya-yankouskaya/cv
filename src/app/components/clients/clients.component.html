@@ -1,0 +1,43 @@
+<section class="clients">
+  <p class="clients__ex-text">
+    Had the privilege to work with companies such as
+    <ng-container
+      *ngTemplateOutlet="
+        clients;
+        context: {
+          clients: EX_CLIENTS_LIST,
+          class: 'clients__ex-text--highlighted'
+        }
+      "
+    ></ng-container>
+    & more.
+  </p>
+
+  <p class="clients__featured-text">
+    Featured on
+    <ng-container
+      *ngTemplateOutlet="clients; context: { clients: FEATURED_CLIENTS_LIST }"
+    ></ng-container>
+    & more.
+  </p>
+
+  <ul class="clients__links-list">
+    <li class="clients__links-item" *ngFor="let client of CLIENTS">
+      <a class="clients__link" [href]="client.link">
+        <img
+          [src]="client.image.src"
+          [srcset]="client.image.srcset"
+          [alt]="client.name"
+          [width]="client.image.width"
+          [height]="client.image.height"
+        />
+      </a>
+    </li>
+  </ul>
+</section>
+
+<ng-template #clients let-clients="clients" let-class="class">
+  <span [class]="class" *ngFor="let client of clients; let last = last">
+    {{ client }}{{ last ? '' : ', ' }}
+  </span>
+</ng-template>

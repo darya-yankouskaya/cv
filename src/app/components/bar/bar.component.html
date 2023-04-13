@@ -1,0 +1,10 @@
+<div class="bar" appAppearOnce (appear)="onBarAppear()">
+  <div class="bar__info">
+    <span class="bar__title">{{ title }}</span>
+    <span class="bar__percent">{{ percent }}%</span>
+  </div>
+
+  <div class="bar__level">
+    <div class="bar__fill" [style.transform]="'scaleX(' + scaleX + ')'"></div>
+  </div>
+</div>

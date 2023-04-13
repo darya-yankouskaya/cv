@@ -1,0 +1,33 @@
+$border-radius: 3px;
+
+.bar {
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 20px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+  }
+
+  &__percent {
+    color: var(--text-secondary);
+  }
+
+  &__level {
+    height: 3px;
+    border-radius: $border-radius;
+    background-color: var(--bg-primary);
+  }
+
+  &__fill {
+    height: 100%;
+    border-radius: $border-radius;
+    background-color: var(--accent-color);
+    transition: transform 1s ease-in;
+    transform-origin: 0%;
+  }
+}

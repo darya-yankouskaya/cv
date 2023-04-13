@@ -1,0 +1,50 @@
+<section class="contact">
+  <a class="contact__email-link" href="mailto:hello@persona.com">
+    hello@persona.com
+  </a>
+
+  <p>Or just send me an email straight through here:</p>
+
+  <form class="contact__form" [formGroup]="form">
+    <app-form-field [label]="'Name'">
+      <input type="text" appInput formControlName="name" />
+
+      <app-form-field-error
+        *ngIf="nameControl.touched && nameControl.hasError('required')"
+        appError
+      >
+        Required
+      </app-form-field-error>
+    </app-form-field>
+
+    <app-form-field [label]="'Email'">
+      <input type="text" appInput formControlName="email" />
+
+      <app-form-field-error
+        *ngIf="emailControl.touched && emailControl.hasError('email')"
+        appError
+      >
+        Invalid email
+      </app-form-field-error>
+      <app-form-field-error
+        *ngIf="emailControl.touched && emailControl.hasError('required')"
+        appError
+      >
+        Required
+      </app-form-field-error>
+    </app-form-field>
+
+    <app-form-field [label]="'Message'">
+      <textarea rows="4" formControlName="message" appInput></textarea>
+
+      <app-form-field-error
+        *ngIf="messageControl.touched && messageControl.hasError('required')"
+        appError
+      >
+        Required
+      </app-form-field-error>
+    </app-form-field>
+
+    <button href="#" class="contact__send-btn secondary">Send Email</button>
+  </form>
+</section>

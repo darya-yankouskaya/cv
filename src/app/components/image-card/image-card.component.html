@@ -1,0 +1,8 @@
+<div class="image-card" *ngIf="card">
+  <img
+    class="image-card__image"
+    appTransformImage
+    [src]="card.url"
+    [alt]="card.description"
+  />
+</div>

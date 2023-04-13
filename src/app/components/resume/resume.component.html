@@ -1,0 +1,25 @@
+<div class="resume container">
+  <section *ngFor="let section of sections">
+    <section class="resume__section" [id]="section.id">
+      <h2 class="resume__title">{{ section.title }}</h2>
+
+      <ng-container [ngSwitch]="section.id">
+        <ng-container *ngSwitchCase="SectionId.About">
+          <app-about class="resume__section-content"></app-about>
+        </ng-container>
+        <ng-container *ngSwitchCase="SectionId.Work">
+          <app-work class="resume__section-content"></app-work>
+        </ng-container>
+        <ng-container *ngSwitchCase="SectionId.Experience">
+          <app-experience class="resume__section-content"></app-experience>
+        </ng-container>
+        <ng-container *ngSwitchCase="SectionId.Clients">
+          <app-clients class="resume__section-content"></app-clients>
+        </ng-container>
+        <ng-container *ngSwitchCase="SectionId.Contact">
+          <app-contact class="resume__section-content"></app-contact>
+        </ng-container>
+      </ng-container>
+    </section>
+  </section>
+</div>
